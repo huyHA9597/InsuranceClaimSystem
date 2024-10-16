@@ -1,0 +1,51 @@
+﻿@page "/"
+@using System.Text.Json
+@using InsuranceClaimSystem.Web.Model
+@inject HttpClient http
+@inject NavigationManager navigationManager
+
+<h1>Claim list</h1>
+
+@if (claims == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <MudTable Items="@claims" Dense="true">
+        <HeaderContent>
+            <MudTh>Name</MudTh>
+            <MudTh>Description</MudTh>
+            <MudTh>Amount</MudTh>
+            <MudTh>Date</MudTh>
+            <MudTh>Status</MudTh>
+        </HeaderContent>
+        <RowTemplate>
+            <MudTd>@context.customerName</MudTd>
+            <MudTd>@context.description</MudTd>
+            <MudTd>@String.Format("{0:0.00}", context.amount)</MudTd>
+            <MudTd>@context.createdDate?.ToString("yyyy-MM-dd")</MudTd>
+            <MudTd>@context.status</MudTd>
+        </RowTemplate>
+    </MudTable>
+
+    <br>
+
+    <MudButton Variant="Variant.Filled" Color="Color.Primary" @onclick="@(() => navigationManager.NavigateTo("/claim"))">Create Claim</MudButton>
+}
+
+@code {
+    [CascadingParameter]
+    private List<Claim> claims {get ;set;} = new List<Claim>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        var response = await http.GetAsync("http://localhost:5252/api/claims");
+        if (response.IsSuccessStatusCode)
+        {
+            var json = await response.Content.ReadAsStringAsync();
+            var result = JsonSerializer.Deserialize<List<Claim>>(json);
+            if (result != null) claims = result;
+        }
+    }
+}
