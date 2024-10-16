@@ -9,7 +9,45 @@ namespace InsuranceClaimSystem.API.Database
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Claim>().HasData(new Claim
+            {
+                Id = Guid.NewGuid(),
+                CustomerName = "Huy",
+                Description = "Test claim 1",
+                Amount = 100f,
+                ClaimDate = DateTime.Now,
+                Status = ClaimStatus.Pending
+            });
+
+            modelBuilder.Entity<Claim>().HasData(new Claim
+            {
+                Id = Guid.NewGuid(),
+                CustomerName = "Adam",
+                Description = "Test claim 2",
+                Amount = 20.4f,
+                ClaimDate = DateTime.Now,
+                Status = ClaimStatus.Pending
+            });
+
+            modelBuilder.Entity<Claim>().HasData(new Claim
+            {
+                Id = Guid.NewGuid(),
+                CustomerName = "Ben",
+                Description = "Test claim 3",
+                Amount = 15f,
+                ClaimDate = DateTime.Now,
+                Status = ClaimStatus.Rejected
+            });
+
+            modelBuilder.Entity<Claim>().HasData(new Claim
+            {
+                Id = Guid.NewGuid(),
+                CustomerName = "Lily",
+                Description = "Test claim 4",
+                Amount = 19f,
+                ClaimDate = DateTime.Now,
+                Status = ClaimStatus.Approved
+            });
         }
     }
 }

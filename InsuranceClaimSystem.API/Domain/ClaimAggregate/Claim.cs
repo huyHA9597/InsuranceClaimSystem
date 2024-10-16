@@ -1,6 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-
-namespace InsuranceClaimSystem.API.Domain.ClaimAggregate
+﻿namespace InsuranceClaimSystem.API.Domain.ClaimAggregate
 {
     public class Claim
     {
@@ -8,7 +6,7 @@ namespace InsuranceClaimSystem.API.Domain.ClaimAggregate
         {
         }
 
-        public Claim(string name, string description, float amount, DateTime date, ClaimStatus status)
+        public Claim(string name, string description, double amount, DateTime date, ClaimStatus status)
         {
             Id = Guid.NewGuid();
             CustomerName = name;
@@ -20,10 +18,9 @@ namespace InsuranceClaimSystem.API.Domain.ClaimAggregate
 
         public Guid Id { get; set; }
         public string CustomerName { get; set; } = string.Empty;
-        public float Amount { get; set; }
+        public double Amount { get; set; }
         public string Description { get; set; } = string.Empty;
         public DateTime ClaimDate { get; set; }
         public ClaimStatus Status { get; set; }
-
     }
 }

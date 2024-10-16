@@ -9,9 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{2B2CDB14
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InsuranceClaimSystem.API", "InsuranceClaimSystem.API\InsuranceClaimSystem.API.csproj", "{05BF91B5-0BCE-4791-B2C0-0D63953EA168}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InsuranceClaimSystem.WebUI", "InsuranceClaimSystem.WebUI\InsuranceClaimSystem.WebUI.csproj", "{91C77A8F-E842-4F5D-ACCD-1C467DD9C3D1}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InsuranceClaimSystem.API.Tests", "InsuranceClaimSystem.API.Tests\InsuranceClaimSystem.API.Tests.csproj", "{778B2DFC-D758-43EB-B9E6-682A6A0DBFF5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InsuranceClaimSystem.API.Tests", "InsuranceClaimSystem.API.Tests\InsuranceClaimSystem.API.Tests.csproj", "{778B2DFC-D758-43EB-B9E6-682A6A0DBFF5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +21,6 @@ Global
 		{05BF91B5-0BCE-4791-B2C0-0D63953EA168}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05BF91B5-0BCE-4791-B2C0-0D63953EA168}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{05BF91B5-0BCE-4791-B2C0-0D63953EA168}.Release|Any CPU.Build.0 = Release|Any CPU
-		{91C77A8F-E842-4F5D-ACCD-1C467DD9C3D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{91C77A8F-E842-4F5D-ACCD-1C467DD9C3D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{91C77A8F-E842-4F5D-ACCD-1C467DD9C3D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{91C77A8F-E842-4F5D-ACCD-1C467DD9C3D1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{778B2DFC-D758-43EB-B9E6-682A6A0DBFF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{778B2DFC-D758-43EB-B9E6-682A6A0DBFF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{778B2DFC-D758-43EB-B9E6-682A6A0DBFF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -37,7 +31,6 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{05BF91B5-0BCE-4791-B2C0-0D63953EA168} = {63D368BD-55FB-4622-961F-0E85EC57369A}
-		{91C77A8F-E842-4F5D-ACCD-1C467DD9C3D1} = {63D368BD-55FB-4622-961F-0E85EC57369A}
 		{778B2DFC-D758-43EB-B9E6-682A6A0DBFF5} = {2B2CDB14-B428-4936-8930-9A5EE6A64D29}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution

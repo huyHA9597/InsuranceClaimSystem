@@ -1,6 +1,4 @@
-﻿using InsuranceClaimSystem.API.Domain;
-
-namespace InsuranceClaimSystem.API.Features.Claims
+﻿namespace InsuranceClaimSystem.API.Features.Claims
 {
     public class ClaimResponse
     {

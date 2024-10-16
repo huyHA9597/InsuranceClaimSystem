@@ -5,7 +5,7 @@ namespace InsuranceClaimSystem.API.Features.Claims.UpdateClaimStatus
 {
     public class UpdateClaimStatusRequest : IRequest<Result<string>>
     {
-        public UpdateClaimStatusRequest(string name, float amount, DateTime createdDate)
+        public UpdateClaimStatusRequest(string name, double amount, DateTime createdDate)
         {
             Name = name;
             Amount = amount;
@@ -15,7 +15,7 @@ namespace InsuranceClaimSystem.API.Features.Claims.UpdateClaimStatus
         public UpdateClaimStatusRequest() { }
 
         public string Name { get; init; } = string.Empty;
-        public float Amount { get; init; }
+        public double Amount { get; init; }
         public DateTime CreatedDate { get; init; }
     }
 }
