@@ -1,14 +1,15 @@
-﻿using InsuranceClaimSystem.API.Domain;
+﻿using InsuranceClaimSystem.API.Domain.ClaimAggregate;
 using Microsoft.EntityFrameworkCore;
 
 namespace InsuranceClaimSystem.API.Database
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : DbContext(options)
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
-        {
-        }
-
         public DbSet<Claim> Claims { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

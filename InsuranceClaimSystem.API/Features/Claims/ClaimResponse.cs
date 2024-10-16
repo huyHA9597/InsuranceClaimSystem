@@ -1,6 +1,8 @@
-﻿namespace InsuranceClaimSystem.API.Contracts.Claim
+﻿using InsuranceClaimSystem.API.Domain;
+
+namespace InsuranceClaimSystem.API.Features.Claims
 {
-    public class GetAllClaimsResponse
+    public class ClaimResponse
     {
         public string CustomerName { get; set; } = string.Empty;
         public double Amount { get; set; }
