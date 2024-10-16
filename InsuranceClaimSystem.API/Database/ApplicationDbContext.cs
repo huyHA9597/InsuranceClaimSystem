@@ -15,7 +15,7 @@ namespace InsuranceClaimSystem.API.Database
                 CustomerName = "Huy",
                 Description = "Test claim 1",
                 Amount = 100f,
-                ClaimDate = DateTime.Now,
+                ClaimDate = DateTime.Now.Date,
                 Status = ClaimStatus.Pending
             });
 
@@ -24,8 +24,8 @@ namespace InsuranceClaimSystem.API.Database
                 Id = Guid.NewGuid(),
                 CustomerName = "Adam",
                 Description = "Test claim 2",
-                Amount = 20.4f,
-                ClaimDate = DateTime.Now,
+                Amount = Math.Round(20.4f, 2),
+                ClaimDate = DateTime.Now.Date,
                 Status = ClaimStatus.Pending
             });
 
@@ -35,7 +35,7 @@ namespace InsuranceClaimSystem.API.Database
                 CustomerName = "Ben",
                 Description = "Test claim 3",
                 Amount = 15f,
-                ClaimDate = DateTime.Now,
+                ClaimDate = DateTime.Now.Date,
                 Status = ClaimStatus.Rejected
             });
 
@@ -45,7 +45,7 @@ namespace InsuranceClaimSystem.API.Database
                 CustomerName = "Lily",
                 Description = "Test claim 4",
                 Amount = 19f,
-                ClaimDate = DateTime.Now,
+                ClaimDate = DateTime.Now.Date,
                 Status = ClaimStatus.Approved
             });
         }

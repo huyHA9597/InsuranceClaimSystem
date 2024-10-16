@@ -9,8 +9,8 @@ namespace InsuranceClaimSystem.API.Features.Claims.CreateClaim
         {
             Name = name;
             Description = description;
-            Amount = amount;
-            CreatedDate = createdDate;
+            Amount = Math.Round(amount, 2);
+            CreatedDate = createdDate.Date;
         }
 
         public CreateClaimRequest() { }

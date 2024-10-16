@@ -1,0 +1,68 @@
+﻿@page "/claim"
+@using InsuranceClaimSystem.Web.Model
+@using Microsoft.AspNetCore.Components.Forms
+@inject HttpClient http
+@inject NavigationManager navigationManager
+
+<PageTitle>Add a new claim</PageTitle>
+
+<MudText Type="Typo.h2">Claim Adding Form</MudText>
+
+<EditForm Model="@Claim" OnSubmit="HandleSubmit">
+    <DataAnnotationsValidator/>
+    <MudGrid>
+        <MudItem xs="15" sm="8">
+            <MudCard>
+                <MudCardContent>
+                    <MudTextField Label="Customer name" HelperText="Input your name" @bind-Value="Claim.customerName" For="@(() => Claim.customerName)"/>
+                    <MudTextField Label="Claim description" HelperText="Input claim detail" @bind-Value="Claim.description" For="@(() => Claim.description)"/>
+                    <MudNumericField HideSpinButtons="true" @bind-Value="Claim.amount" HelperText="Enter claim amount" Format="N2" T="double"/>
+                    <MudDatePicker Label="Claim Date" @bind-Date="@Claim.createdDate" ShowToolbar="false"/>
+                </MudCardContent>
+                <MudCardActions>
+                    <MudButton Variant="Variant.Filled" Color="Color.Primary" ButtonType="ButtonType.Submit" Class="ml-auto">Submit Claim</MudButton>
+                </MudCardActions>
+            </MudCard>
+        </MudItem>
+    </MudGrid>
+</EditForm>
+
+@code {
+
+[CascadingParameter]
+public Claim Claim { get; set; } = new Claim();
+
+private async Task HandleSubmit()
+{
+    var request = new ClaimRequest
+    {
+        name = Claim.customerName,
+        description = Claim.description,
+        amount = Claim.amount,
+        createdDate = Claim.createdDate
+    };
+
+    // Make the API call
+    var response = await http.PostAsJsonAsync("http://localhost:5252/api/claims", request);
+
+    if (response.IsSuccessStatusCode)
+    {
+        // Handle successful submission (e.g., redirect to a thank you page)
+        navigationManager.NavigateTo("/");
+    }
+    else
+    {
+        // Handle errors (e.g., display an error message)
+        Console.WriteLine("Error!");
+        return;
+    }
+}
+
+public class ClaimRequest
+{
+    public string name { get; set; } = string.Empty;
+    public string description { get; set; } = string.Empty;
+    public double amount { get; set; }
+    public DateTime? createdDate { get; set; }
+}
+}
