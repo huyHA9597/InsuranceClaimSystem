@@ -3,7 +3,7 @@ using Ardalis.Result.FluentValidation;
 using AutoMapper;
 using FluentValidation;
 using InsuranceClaimSystem.API.Database;
-using InsuranceClaimSystem.API.Domain.ClaimAggregate;
+using InsuranceClaimSystem.API.Domain;
 using MediatR;
 
 namespace InsuranceClaimSystem.API.Features.Claims.CreateClaim

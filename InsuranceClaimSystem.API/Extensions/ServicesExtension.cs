@@ -7,7 +7,7 @@ namespace InsuranceClaimSystem.API.Extensions
 {
     public static class ServicesExtension
     {
-        public static void ConfigureServices(IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection ConfigureServices(this IServiceCollection services, IConfiguration configuration)
         {
             // In-memory database configuration
             services.AddDbContext<ApplicationDbContext>(options =>
@@ -38,6 +38,8 @@ namespace InsuranceClaimSystem.API.Extensions
             services.AddAuthorization();
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
+
+            return services;
         }
     }
 }

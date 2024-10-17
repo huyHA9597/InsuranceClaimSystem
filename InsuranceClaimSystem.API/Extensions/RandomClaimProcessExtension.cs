@@ -1,4 +1,4 @@
-﻿using InsuranceClaimSystem.API.Domain.ClaimAggregate;
+﻿using InsuranceClaimSystem.API.Domain;
 
 namespace InsuranceClaimSystem.API.Extensions
 {

@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using InsuranceClaimSystem.API.Domain.ClaimAggregate;
+using InsuranceClaimSystem.API.Domain;
 
 namespace InsuranceClaimSystem.API.Features.Claims
 {
