@@ -2,9 +2,8 @@
 using InsuranceClaimSystem.API.Database;
 using MediatR;
 using Ardalis.Result;
-using InsuranceClaimSystem.API.Domain.ClaimAggregate;
 using Microsoft.EntityFrameworkCore;
-using System.Security.Claims;
+using InsuranceClaimSystem.API.Domain;
 
 namespace InsuranceClaimSystem.API.Features.Claims.GetAllClaimsByStatus
 {

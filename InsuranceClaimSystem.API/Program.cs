@@ -4,7 +4,7 @@ using InsuranceClaimSystem.API.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
-ServicesExtension.ConfigureServices(builder.Services, builder.Configuration);
+builder.Services.ConfigureServices(builder.Configuration);
 
 var app = builder.Build();
 

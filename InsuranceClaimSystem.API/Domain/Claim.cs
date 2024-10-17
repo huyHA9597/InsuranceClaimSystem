@@ -1,4 +1,4 @@
-﻿namespace InsuranceClaimSystem.API.Domain.ClaimAggregate
+﻿namespace InsuranceClaimSystem.API.Domain
 {
     public class Claim
     {
