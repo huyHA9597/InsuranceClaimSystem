@@ -4,10 +4,13 @@ namespace InsuranceClaimSystem.API.Extensions
 {
     public class RandomClaimProcessExtension
     {
+        // To return the claim status randomly using a random generated number.
+        // If the random number is greater than 1, then the status will be Pending.
+        // Otherwise, depend on the random number, if greater than 0.5, then the status will be Approved.
         public static ClaimStatus ToProcessClaim()
         {
             Random random = new Random();
-            float randomNumber = random.Next(0, 2);
+            double randomNumber = random.NextDouble() * 2;
             if (randomNumber >= 1)
             {
                 return ClaimStatus.Pending;

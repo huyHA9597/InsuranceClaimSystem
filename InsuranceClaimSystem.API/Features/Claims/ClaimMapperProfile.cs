@@ -5,6 +5,7 @@ namespace InsuranceClaimSystem.API.Features.Claims
 {
     public class ClaimMapperProfile : Profile
     {
+        // A mapping profile between Domain model and DTO
         public ClaimMapperProfile()
         {
             CreateMap<Claim, ClaimResponse>()

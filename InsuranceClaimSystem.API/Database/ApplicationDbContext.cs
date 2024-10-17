@@ -9,6 +9,7 @@ namespace InsuranceClaimSystem.API.Database
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            // Seed data
             modelBuilder.Entity<Claim>().HasData(new Claim
             {
                 Id = Guid.NewGuid(),

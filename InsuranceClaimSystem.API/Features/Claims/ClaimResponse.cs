@@ -1,5 +1,8 @@
 ﻿namespace InsuranceClaimSystem.API.Features.Claims
 {
+    /// <summary>
+    /// Act like a DTO model, to hide any unnecessary data like Id.
+    /// </summary>
     public class ClaimResponse
     {
         public string CustomerName { get; set; } = string.Empty;

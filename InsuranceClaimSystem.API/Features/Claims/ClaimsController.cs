@@ -16,6 +16,11 @@ namespace InsuranceClaimSystem.API.Features.Claims
     {
         private readonly IMediator _mediator = mediator;
 
+        /// <summary>
+        /// To create a claim
+        /// </summary>
+        /// <param name="request">Containing claim information</param>
+        /// <returns></returns>
         [HttpPost]
         [AllowAnonymous]
         [Consumes(MediaTypeNames.Application.Json)]
@@ -27,6 +32,10 @@ namespace InsuranceClaimSystem.API.Features.Claims
         public async Task<ActionResult<Guid>> Create([FromBody] CreateClaimRequest request) =>
             (await _mediator.Send(request)).ToActionResult(this);
 
+        /// <summary>
+        /// Get all claims
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         [AllowAnonymous]
         [Consumes(MediaTypeNames.Application.Json)]
@@ -37,6 +46,11 @@ namespace InsuranceClaimSystem.API.Features.Claims
         public async Task<ActionResult<List<ClaimResponse>>> Get() =>
         (await _mediator.Send(new GetAllClaimsRequest())).ToActionResult(this);
 
+        /// <summary>
+        /// Get all claims with the status request
+        /// </summary>
+        /// <param name="status"></param>
+        /// <returns></returns>
         [HttpGet("{status:alpha}")]
         [AllowAnonymous]
         [Consumes(MediaTypeNames.Application.Json)]
@@ -47,6 +61,12 @@ namespace InsuranceClaimSystem.API.Features.Claims
         public async Task<ActionResult<List<ClaimResponse>>> GetByStatus(string status) =>
             (await _mediator.Send(new GetAllClaimsByStatusRequest(status))).ToActionResult(this);
 
+        /// <summary>
+        /// Update the claim status.
+        /// The status will be randomly set.
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         [HttpPut]
         [AllowAnonymous]
         [Consumes(MediaTypeNames.Application.Json)]
