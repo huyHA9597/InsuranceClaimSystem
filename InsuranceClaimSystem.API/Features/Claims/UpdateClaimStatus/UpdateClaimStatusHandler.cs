@@ -33,6 +33,7 @@ namespace InsuranceClaimSystem.API.Features.Claims.UpdateClaimStatus
             {
                 searchResult.Status = RandomClaimProcessExtension.ToProcessClaim();
 
+                // There is no UpdateAsync in Entity framework
                 _context.Update(searchResult);
 
                 await _context.SaveChangesAsync(cancellationToken);

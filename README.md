@@ -1,7 +1,5 @@
 ﻿# InsuranceClaimSystem
 
-## Purpose:
-
 This project is an assignment trying to mimic a simplified version of an Insurance Claim System that manages customer claims.
 
 The system should:
@@ -18,14 +16,15 @@ This project repository is aspired based on [Vertical slice architecture in .NET
 - CQRS with [MediatR](https://github.com/jbogard/MediatR)
 - [FluentValidation](https://fluentvalidation.net/)
 - [Entity Framework Core 8](https://docs.microsoft.com/en-us/ef/core/)
+- [Ardalis Result](https://github.com/ardalis/Result) and [Ardalis Result FluentValidation](https://www.nuget.org/packages/Ardalis.Result.FluentValidation) to behave as a standard Result wrapper type.
 - [xUnit](https://xunit.net/), [FluentAssertions](https://fluentassertions.com/), [Bogus](https://github.com/bchavez/Bogus)
 - [MudBlazor](https://mudblazor.com/)
 
-Afterwards, the projects and architecture is refactored towards the Vertical slice architecture style.
+Afterwards, the API project architecture is refactored towards the Vertical slice architecture style.
 
 ## Purpose of this repository
 
-Since the timeline is only 4 days for 3 parts (API, Test and Web), I wanted to create a simpler API solution that focuses on the vertical slices architecture style.
+Since the timeline is only 4 days for 3 parts (API, Test and Web), I wanted to create a simple API solution that focuses on the feature. The API architecture should be as simple as possible to anyone can quickly understand the logic. So I choose the vertical slices architecture style, an type of architecture that help us focus more on the business logic rather than the technical layers.
 
 Vertical slice architecture makes us stop thinking about horizontal layers and start thinking about vertical slices and organize code by **Features**. When the code is organized by feature you get the benefits of not having to jump around projects, folders and files. Things related to given features are placed close together.
 
@@ -40,8 +39,8 @@ The solution template is broken into 3 projects:
 ASP.NET Web API project is an entry point to the application. It contains all the controller and domain logic for handling the claim management system.
 
 #### Project structure:
-- Database: To initialize and configure a DbContext instance. 
-- Domain: Contain the **Claim** model
+- Database: To initialize and configure a DbContext instance. Also containing some seed data in OnModelCreating override method.
+- Domain: Contain the **Claim** model. 
 - Extensions: To contain the configuration for Database, CORS, validation and other services,...
 - Features: Contain the controller and the claim endpoint logic. Each endpoint is splited into a separate folder. You can see that the logic handler and the validation will be owned for each endpoint. This make any newcomers who just seen the project can get used to understand the project quickly.
 
@@ -103,9 +102,13 @@ The project is configured to use an in-memory database by default.
 
 This project is simplified due to shortage of time. But in the end, there still be several things to be concerned and improve later.
 
-- Validation and unit test for domain model.
-- API authorization and authentication.
-- Pagination for getAllClaims endpoint.
+- [ ] Using real database instead of the in-memory version.
+- [ ] Validation and unit test for domain model.
+- [ ] API authorization and authentication.
+- [ ] Pagination for getAllClaims endpoint.
+- [ ] Caching.
+- [ ] Security concern following OWASP.
+- [ ] Complexity when a new feature added.
 
 
 ## Reference
